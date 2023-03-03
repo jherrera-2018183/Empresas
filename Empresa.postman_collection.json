@@ -1,0 +1,376 @@
+{
+	"info": {
+		"_postman_id": "e7178ba6-a5d0-43e1-a9de-f45145b7ed0a",
+		"name": "Empresa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25979209"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"correo\": \"fabs@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Empresa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Fabian\",\r\n    \"correo\": \"fabs@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"tipo\": \"aefdas\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/empresas/agregar/alumno",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"empresas",
+						"agregar",
+						"alumno"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar profesor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Pedro\",\r\n    \"correo\": \"pedro@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/usuarios/agregar/profesor",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"usuarios",
+						"agregar",
+						"profesor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar cursos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDAxNjFjNGQ4NmFhZGQxMDA1ZTZjOGMiLCJpYXQiOjE2Nzc4MTI4MTgsImV4cCI6MTY3NzgzNDQxOH0.1X-FBq1oWDNQILjCP4g6-Jh57q0Y7c5hVmhfDGaD2pI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"curso\": \"seminario\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/sucursal/agregar/sucursal",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sucursal",
+						"agregar",
+						"sucursal"
+					],
+					"query": [
+						{
+							"key": "x-token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2Y2YjJmN2JlZDE5YzM4ZjU5NmRiN2YiLCJpYXQiOjE2NzcxOTAxMTQsImV4cCI6MTY3NzIxMTcxNH0.Fe-DrPjoRXP3oSGrDGDfeNmnzWh8JSrnwatOx5h2qXk",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asignar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"curso\": \"TALLER III\",\r\n    \"curso2\": \"CALCULO\",\r\n    \"curso3\": \"INGLÉS LLL\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/usuarios/asignar/63f80c9a963288b4dbe34909",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"usuarios",
+						"asignar",
+						"63f80c9a963288b4dbe34909"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editar curso",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2YzYWE1NjA0MmQ4NWYyMmNiNjRhM2EiLCJpYXQiOjE2NzY5MTM2NTMsImV4cCI6MTY3NjkzNTI1M30.W9zdDbxPD4abgFLlKnpajyyC6odiyOPOQZiu7UfGpTA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"curso\": \"Inglés lll\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/cursos/editarCurso/63f2a3a3591f6f9ed6d5b0a8",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cursos",
+						"editarCurso",
+						"63f2a3a3591f6f9ed6d5b0a8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar profesor",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2YyYWRmNGY2Yzg4ZTY0YzhjODRlM2MiLCJpYXQiOjE2NzcxMjI0MTMsImV4cCI6MTY3NzE0NDAxM30.uf4EWAQpGA657yeXp7NZ-zh5M6NXVLgH3pnnZlR9eLc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Victor Cancinos Kinal\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/usuarios/editar/63f2a32b591f6f9ed6d5b0a3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"usuarios",
+						"editar",
+						"63f2a32b591f6f9ed6d5b0a3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar alumno",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2Y2ZDcxYWE2MWFlYzE0MzFkYTg1MGYiLCJpYXQiOjE2NzcxMjE1NTksImV4cCI6MTY3NzE0MzE1OX0.iPax5J0_g93KURcdX7r2uhpBwGRtGTbEM8NsS3tgYmQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/usuarios/eliminarAlumno/63f6d71aa61aec1431da850f",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"usuarios",
+						"eliminarAlumno",
+						"63f6d71aa61aec1431da850f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar curso",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2YzYTk0ZTA0MmQ4NWYyMmNiNjRhMjMiLCJpYXQiOjE2NzY5MTM3MjIsImV4cCI6MTY3NjkzNTMyMn0.1anTognVOQGm2sxs62JpgwQsguBMN_D6bEHaW5x3pmo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "localhost:8080/api/cursos/eliminarCurso/63f3a9c2042d85f22cb64a34",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cursos",
+						"eliminarCurso",
+						"63f3a9c2042d85f22cb64a34"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar usuarios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/api/usuarios/mostrar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"usuarios",
+						"mostrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar usuario por id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/usuarios/mostrar/63f6d4231105213d100521a0",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"usuarios",
+						"mostrar",
+						"63f6d4231105213d100521a0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar cursos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/cursos/mostrarCurso",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cursos",
+						"mostrarCurso"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

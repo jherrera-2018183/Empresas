@@ -74,7 +74,7 @@ const deleteEmpresa = async (req = request, res = response) => {
     const empresaEliminado = await Empresa.findByIdAndUpdate(id, { estado: false });
 
     res.json({
-        msg: 'DELETE eliminar user',
+        msg: 'DELETE eliminar empresa',
         empresaEliminado
     });
 }

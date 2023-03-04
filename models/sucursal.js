@@ -1,19 +1,25 @@
 const { Schema, model } = require('mongoose');
 
-const SucursalSchema = Schema({
-    sucursal: {
+const SucursalSchema = new Schema({
+    
+    nombre:{
+        type:String,
+        required:[true, 'El nombre es obligatorio']
+
+    },
+    direccion:{
+        type:String,
+        required:[true, 'La direccion es obligatoria']
+    },
+    municipio:{
         type: String,
-        required: [true , 'El sucursal es obligatorio']
+        enum: ['Ciudad de Guatemala', 'Mixco', 'Villa Nueva', 'San Miguel Petapa'],
+        required:[true, 'El municipio es obligatoria']
     },
-    estado: {
-        type: Boolean,
-        default: true
-    },
-    empresa: {
+    empresa:{
         type: Schema.Types.ObjectId,
-        ref: 'Empresa',
-        required: true
-    }
+        ref:'Empresa'
+    },
 });
 
 

@@ -1,7 +1,7 @@
 const { response, request } = require('express');
 const bcrypt = require('bcryptjs');
 const Sucursal = require('../models/sucursal');
-
+const Empresa = require('../models/empresa');
 const getSucursal = async (req = request, res = response) => {
 
     const query = { estado: true };
@@ -18,28 +18,33 @@ const getSucursal = async (req = request, res = response) => {
 
 }
 
-const postSucursal = async (req = request, res = response) => {
+const postSucursal = async( req= request, res = response ) =>{
 
-    const sucursal = req.body.sucursal.toUpperCase();
+    try {
+        const {nombre, direccion, municipio} = req.body;
+        const empresaId = req.empresa._id;
 
-    const sucursalDB = await Sucursal.findOne({ sucursal })
+        const sucursalDB = new Sucursal({nombre, direccion, municipio, empresa: empresaId});
 
-    if (sucursalDB) {
-        return res.status(400).json({
-            msg: `El sucursal ${sucursalDB.sucursal}, ya existe.`
+        await sucursalDB.save();
+
+        const empresa = await Empresa.findById(empresaId);
+        
+        empresa.sucursales.push(sucursalDB._id);
+        await empresa.save();
+        
+        res.json({
+          msg: 'Post - Sucursal Agregada',
+          sucursalDB
         });
-    }
+        
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({
+          msg: 'Error al guardar la empresa en la base de datos'
+        });
+      }
 
-    const data = {
-        sucursal,
-        empresa: req.empresa._id
-    }
-
-    const curse = new Sucursal(data);
-
-    await curse.save()
-
-    res.status(201).json(curse);
 
 }
 

@@ -22,7 +22,7 @@ router.post('/agregar/alumno', [
     //check('rol').default('ROL_ALUMNO').custom( esRoleValido ),
     //validarCampos,
 ] ,postEmpresa);
-
+/*
 router.put('/asignar/:id', [
     check('id', 'No es un ID válido').isMongoId(),
     check('id').custom( existeEmpresaPorId ),
@@ -32,6 +32,7 @@ router.put('/asignar/:id', [
     check('sucursal4', 'Un alumno solo puede registrarse a 3 sucursals').isEmpty(), 
     validarCampos
 ] ,putEmpresa);
+*/
 
 router.post('/agregar/profesor', [
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),

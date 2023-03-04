@@ -20,6 +20,11 @@ const SucursalSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref:'Empresa'
     },
+    estado: {
+        type: Boolean,
+        default: true
+    },
+
 });
 
 

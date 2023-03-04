@@ -72,9 +72,9 @@ const existeEmpresaPorId = async (id) => {
 
 }
 
-const existeCursoPorId = async (id) => {
+const existeSucursalPorId = async (id) => {
 
-    const existeUser = await Curso.findById(id);
+    const existeUser = await sucursal.findById(id);
 
     if (!existeUser) {
         throw new Error(`El id ${id} no existe en la DB`);
@@ -89,7 +89,7 @@ module.exports = {
     esCursoValido,
     emailExiste,
     existeEmpresaPorId,
-    existeCursoPorId,
+    existeSucursalPorId,
     cursoValido,
     esElCursoValido,
     nombreExiste

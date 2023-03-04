@@ -42,7 +42,7 @@ const postSucursal = async( req= request, res = response ) =>{
       } catch (error) {
         console.error(error);
         res.status(500).json({
-          msg: 'Error al guardar la sucursal en la base de datos'
+          msg: 'Error al guardar la empresa en la base de datos'
         });
       }
 

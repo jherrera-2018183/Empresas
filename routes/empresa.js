@@ -1,7 +1,7 @@
 //Importaciones
 const { Router } = require('express');
 const { check } = require('express-validator');
-const { sucursalYaExiste } = require('../controllers/sucursal');
+
 const { getEmpresas, postEmpresa, putEmpresa, deleteEmpresa, validacionSucursal, getEmpresaPorID } = require('../controllers/empresa');
 const { esRoleValido, emailExiste, existeEmpresaPorId, esSucursalValido, sucursalValido, esElSucursalValido} = require('../helpers/db-validators');
 const { validarCampos } = require('../middlewares/validar-campos');
@@ -52,8 +52,6 @@ router.delete('/eliminarAlumno/:id', [
 
 router.delete('/eliminar/:id', [
     validarJWT,
-    //esAdminRole,
-    tieneRole('ROL_MAESTRO'),
     check('id', 'No es un ID válido').isMongoId(),
     check('id').custom( existeEmpresaPorId ),
     validarCampos

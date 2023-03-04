@@ -21,19 +21,17 @@ router.post('/agregar/sucursal', [
 
 router.put('/editarSucursal/:id', [
     validarJWT,
-    //esMaestroRole,
-    /*check('id', 'No es un ID válido').isMongoId(),
+    check('id', 'No es un ID válido').isMongoId(),
     check('id').custom( existeSucursalPorId ),
-    validarCampos*/
+    validarCampos
 ] ,putSucursal);
 
 
 router.delete('/eliminarSucursal/:id', [
     validarJWT,
-    //tieneRole('ROL_MAESTRO'),
-   // check('id', 'No es un ID válido').isMongoId(),
-    //check('id').custom( existeSucursalPorId ),
-   // validarCampos
+    check('id', 'No es un ID válido').isMongoId(),
+    check('id').custom( existeSucursalPorId ),
+    validarCampos
 ] ,deleteSucursal);
 
 

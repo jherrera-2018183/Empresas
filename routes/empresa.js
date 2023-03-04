@@ -19,8 +19,7 @@ router.post('/agregar/alumno', [
     check('password', 'El password debe de ser más de 6 digitos').isLength( { min: 6 } ),
     check('correo', 'El correo no es valido').isEmail(),
     check('correo').custom( emailExiste ),
-    //check('rol').default('ROL_ALUMNO').custom( esRoleValido ),
-    //validarCampos,
+    validarCampos,
 ] ,postEmpresa);
 /*
 router.put('/asignar/:id', [
@@ -34,18 +33,9 @@ router.put('/asignar/:id', [
 ] ,putEmpresa);
 */
 
-router.post('/agregar/profesor', [
-    check('nombre', 'El nombre es obligatorio').not().isEmpty(),
-    check('password', 'El password debe de ser más de 6 digitos').isLength( { min: 6 } ),
-    check('correo', 'El correo no es valido').isEmail(),
-    check('correo').custom( emailExiste ),
-    check('rol').default('ROL_MAESTRO').custom( esRoleValido ),
-    validarCampos,
-] ,postEmpresa);
-
 router.put('/editar/:id', [
     validarJWT,
-    esMaestroRole,
+    //esMaestroRole,
     check('id', 'No es un ID válido').isMongoId(),
     check('id').custom( existeEmpresaPorId ),
     validarCampos

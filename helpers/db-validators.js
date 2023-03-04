@@ -1,6 +1,7 @@
 const Role = require('../models/role');
 const Curso = require('../models/sucursal');
 const Empresa = require('../models/empresa');
+const sucursal = require('../models/sucursal');
 
 
 const cursoValido = async (rol = '') => {
@@ -50,6 +51,15 @@ const emailExiste = async (correo = '') => {
     }
 
 }
+const nombreExiste = async (nombre  = '') => {
+
+    const nombreExiste = await sucursal.findOne({ nombre });
+
+    if (nombreExiste) {
+        throw new Error(`El nombre : ${nombre} ya existe y esta registrado en la DB`);
+    }
+
+}
 
 
 const existeEmpresaPorId = async (id) => {
@@ -81,5 +91,6 @@ module.exports = {
     existeEmpresaPorId,
     existeCursoPorId,
     cursoValido,
-    esElCursoValido
+    esElCursoValido,
+    nombreExiste
 }

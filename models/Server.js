@@ -8,6 +8,8 @@ class Server {
         this.app = express();
         this.port = process.env.PORT;
         this.authPath = '/api/auth';
+        this.buscarPath = '/api/buscar';
+        this.empresasPath = '/api/empresas';
         this.empresasPath = '/api/empresas';
         this.sucursalPath = '/api/sucursal';
 
@@ -36,6 +38,7 @@ class Server {
 
     routes() {
         this.app.use(this.authPath, require('../routes/auth'));
+        this.app.use(this.buscarPath, require('../routes/buscar'));
         this.app.use(this.empresasPath, require('../routes/empresa'));
         this.app.use(this.sucursalPath, require('../routes/sucursal'));
     }

@@ -19,6 +19,7 @@ const getEmpresas = async (req = request, res = response) => {
 }
 
 
+
 const getEmpresaPorID = async (req = request, res = response) => {
 
     const { id } = req.params;

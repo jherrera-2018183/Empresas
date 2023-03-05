@@ -2,12 +2,12 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 
-const { getEmpresas, postEmpresa, putEmpresa, deleteEmpresa, validacionSucursal, getEmpresaPorID } = require('../controllers/empresa');
-const { esRoleValido, emailExiste, existeEmpresaPorId, esSucursalValido, sucursalValido, esElSucursalValido} = require('../helpers/db-validators');
+const { getEmpresas, postEmpresa, putEmpresa, deleteEmpresa,getEmpresaPorID } = require('../controllers/empresa');
+const { emailExiste, existeEmpresaPorId, } = require('../helpers/db-validators');
 const { validarCampos } = require('../middlewares/validar-campos');
 const { validarJWT } = require('../middlewares/validar-jwt');
-const { tieneRole, rolSucursalValido, esMaestroRole } = require('../middlewares/validar-roles');
-const role = require('../models/role');
+
+
 
 const router = Router();
 
@@ -21,21 +21,11 @@ router.post('/agregar/alumno', [
     check('correo').custom( emailExiste ),
     validarCampos,
 ] ,postEmpresa);
-/*
-router.put('/asignar/:id', [
-    check('id', 'No es un ID válido').isMongoId(),
-    check('id').custom( existeEmpresaPorId ),
-    check('sucursal').custom(esSucursalValido),
-    check('sucursal2').custom(esSucursalValido), 
-    check('sucursal3').custom( esSucursalValido ),
-    check('sucursal4', 'Un alumno solo puede registrarse a 3 sucursals').isEmpty(), 
-    validarCampos
-] ,putEmpresa);
-*/
+
 
 router.put('/editar/:id', [
     validarJWT,
-    //esMaestroRole,
+
     check('id', 'No es un ID válido').isMongoId(),
     check('id').custom( existeEmpresaPorId ),
     validarCampos

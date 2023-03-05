@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 const { deleteSucursal, putSucursal, postSucursal, getSucursal, sucursalYaExiste } = require('../controllers/sucursal');
-const { esRoleValido, emailExiste, existeEmpresaPorId, esSucursalValido, sucursal4Valido, existeSucursalPorId, nombreExiste,  } = require('../helpers/db-validators');
+const { emailExiste, existeEmpresaPorId,  existeSucursalPorId, nombreExiste,  } = require('../helpers/db-validators');
 const { validarCampos } = require('../middlewares/validar-campos');
 const { validarJWT } = require('../middlewares/validar-jwt');
 

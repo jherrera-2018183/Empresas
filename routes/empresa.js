@@ -14,7 +14,7 @@ const router = Router();
 router.get('/mostrar', getEmpresas);
 router.get('/mostrar/:id', getEmpresaPorID);
 
-router.post('/agregar/alumno', [
+router.post('/agregar', [
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
     check('password', 'El password debe de ser más de 6 digitos').isLength( { min: 6 } ),
     check('correo', 'El correo no es valido').isEmail(),
@@ -32,7 +32,7 @@ router.put('/editar/:id', [
 ] ,putEmpresa);
 
 
-router.delete('/eliminarAlumno/:id', [
+router.delete('/eliminarEmpresa/:id', [
     validarJWT,
     check('id', 'No es un ID válido').isMongoId(),
     check('id').custom( existeEmpresaPorId ),

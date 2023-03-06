@@ -10,7 +10,7 @@ const router = Router();
 
 router.get('/mostrarSucursal', getSucursal);
 
-router.post('/agregar/sucursal', [
+router.post('/agregar', [
     validarJWT,
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
     check('nombre').custom( nombreExiste ),
